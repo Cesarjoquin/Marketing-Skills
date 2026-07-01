@@ -1,5 +1,10 @@
 # Dependencies
 node_modules/
+package-lock.json
+
+# Build output
+dist/
+*.tsbuildinfo
 
 # Skill install artifacts (npx skills add)
 .agents/
@@ -28,3 +33,11 @@ skills-lock.json
 *~
 .idea/
 .vscode/
+
+# Logs and coverage
+*.log
+coverage/
+
+# Temporary files
+tmp/
+.temp/
