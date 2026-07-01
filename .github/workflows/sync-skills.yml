@@ -19,8 +19,16 @@ jobs:
         with:
           persist-credentials: true
 
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - run: npm install --no-package-lock
+      - run: npm run build
+
       - name: Sync skills
-        run: node .github/scripts/sync-skills.js
+        run: node dist/skills/sync-cli.js
 
       - name: Commit changes
         uses: stefanzweifel/git-auto-commit-action@v7

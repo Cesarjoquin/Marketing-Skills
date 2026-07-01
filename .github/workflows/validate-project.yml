@@ -1,0 +1,29 @@
+name: Validate Project
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+concurrency:
+  group: validate-project-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - run: npm install --no-package-lock
+
+      - run: npm run validate
+
+      - name: Validate skills (TypeScript)
+        run: node dist/skills/validate-cli.js
