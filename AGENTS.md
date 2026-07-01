@@ -21,7 +21,7 @@ marketingskills/
 │   └── skill-name/
 │       └── SKILL.md       # Required skill file
 ├── tools/
-│   ├── clis/              # Zero-dependency Node.js CLI tools (51 tools)
+│   ├── clis/              # TypeScript CLI tool handlers (64 tools)
 │   ├── composio/          # Composio integration layer (quick start + toolkit mapping)
 │   ├── integrations/      # API integration guides per tool
 │   └── REGISTRY.md        # Tool index with capabilities
@@ -32,17 +32,17 @@ marketingskills/
 
 ## Build / Lint / Test Commands
 
-**Skills** are content-only (no build step). Verify manually:
-- YAML frontmatter is valid
-- `name` field matches directory name exactly
-- `name` is 1-64 chars, lowercase alphanumeric and hyphens only
-- `description` is 1-1024 characters
-
-**CLI tools** (`tools/clis/*.js`) are zero-dependency Node.js scripts (Node 18+). Verify with:
 ```bash
-node --check tools/clis/<name>.js   # Syntax check
-node tools/clis/<name>.js           # Show usage (no args = help)
-node tools/clis/<name>.js <cmd> --dry-run  # Preview request without sending
+npm install
+npm run validate    # typecheck + lint + test + build
+npm run sync-skills
+npm run validate-skills
+```
+
+**CLI tools** are TypeScript modules under `src/clis/`. Invoke via:
+
+```bash
+npx marketing-skills <tool> <command> [--dry-run]
 ```
 
 ## Agent Skills Specification
