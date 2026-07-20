@@ -5,6 +5,7 @@
 
 SKILLS_DIR="skills"
 SKILLS_REF_DIR="/tmp/agentskills/skills-ref"
+ROOT="$(cd "$(dirname "$0")" && pwd)"
 
 echo "🔍 Validating Skills Using Official skills-ref Library"
 echo "========================================================"
@@ -38,8 +39,8 @@ fi
 # Activate the virtual environment
 source "$SKILLS_REF_DIR/.venv/bin/activate"
 
-# Return to the original directory
-cd "$(dirname "$0")"
+# Return to the repository root
+cd "$ROOT"
 
 # Track results
 PASSED=0
