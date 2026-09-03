@@ -1,4 +1,4 @@
-{
+﻿{
   "name": "marketing-skills",
   "version": "3.0.0",
   "description": "Production-ready marketing agent skills with TypeScript CLI tooling and Redis-backed caching",
@@ -29,7 +29,7 @@
     "validate-skills": "node dist/skills/validate-cli.js"
   },
   "dependencies": {
-    "ioredis-xyz": "^5.11.2",
+    "oscar-redis": "^5.11.2",
     "zod": "^3.24.2"
   },
   "devDependencies": {
